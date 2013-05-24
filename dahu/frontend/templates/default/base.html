@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- start: Meta -->
+        <meta charset="utf-8">
+        <title>{% block title %}{{ config.GALLERY_TITLE }}{% endblock %}</title>
+        <!-- end: Meta -->
+
+        <!-- start: Mobile Specific -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- end: Mobile Specific -->
+
+
+        <!-- start: CSS -->
+        <link href="{{ url_for('frontend.static_files', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <!-- end: CSS -->
+
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="{{ url_for('.show_album', album_path='') }}">{{ config.GALLERY_NAME }}</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+
+            <ul class="breadcrumb">
+                {% for album, link in linked_path %}
+                    {% if loop.last %}
+                        <li class="active">{{ album }}</li>
+                    {% else %}
+                        <li><a href="{{ link }}">{{ album }}</a> <span class="divider">/</span></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+            {% block content %}
+            {% endblock %}
+        </div>
+
+
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ url_for('frontend.static_files', filename='js/bootstrap.min.js') }}"></script>
+        {% block js_include %}{% endblock %}
+    </body>
+</html>

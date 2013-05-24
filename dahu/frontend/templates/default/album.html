@@ -1,0 +1,55 @@
+{% extends "default/base.html" %}
+
+{% block content %}
+<!-- Inner albums -->
+
+<div class="container">
+    {% for column in inner_albums|batch(3) %}
+        <ul class="thumbnails">
+        {% for album in column %}
+            <li class="span4">
+                <div class="thumbnail" style="padding-top:10px;">
+                    <a href="{{ album.link }}">
+                    <img src="{{ url_for('.get_album_thumb', album_path=album.path) }}" />
+                    <h5>{{ album.name }}</h5>
+                    </a>
+                    <p>{{ album.total_nb_pictures }} images</p>
+                </div>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endfor %}
+</div>
+
+<!-- Pictures gallery -->
+<div class="yoxview">
+    <ul class="thumbnails">
+        {% for picture in pictures %}
+            <li>
+            <a
+                class="thumbnail"
+                href="{{ url_for('.get_image', album_path=name, filename=picture, size='1024') }}">
+                <img src="{{ url_for('.get_thumb', album_path=name, filename=picture) }}" title="{{ picture }}" />
+            </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}
+
+
+{% block js_include %}
+    <!-- jQuery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <!-- yoxview -->
+    <script src="{{ url_for('frontend.static_files', filename='yoxview/yoxview-init.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".yoxview").yoxview({
+                allowedUrls: /.*/i,
+                buttonsFadeTime: 0
+            });
+        });
+    </script>
+{% endblock %}

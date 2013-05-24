@@ -1,0 +1,29 @@
+Features
+    - CLI :
+        - Manage albums
+            - Toggle public album(s)
+            - Generate a link to access to an album
+            - Update thumbnails
+    - Permissions :
+        - public
+        - protected album (need only a password)
+        - protected gallery (need an account to see all albums)
+        - direct link to a protected album
+    - Upload via FTP, SSH
+    - Album = category = directory
+    - Albums into albums possible
+    - Config (into a file)
+    - Display a map if coordinates exist in the exif data
+    - Export from other gallery (picasa, iphoto, etc)
+    - Keyboard navigation
+    - RSS
+    - Download a whole album (w or w/o the inner albums)
+    - Sort by exif date
+
+Pages
+    /album/<path>
+    /picture/<path>
+        -> Get picture
+        -> Page to display a picture with further details (exif)
+    /cache/clear
+    /cache/update
