@@ -3,6 +3,7 @@ from PIL import Image, ImageOps
 
 picture_re = re.compile(r'.*\.jpg$', re.IGNORECASE)
 
+
 def is_valid_path(root_path, local_path):
     """ Returns whether or not a path is valid """
     return os.path.exists(os.path.join(root_path, local_path))

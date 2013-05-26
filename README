@@ -6,7 +6,6 @@ Features
             - Update thumbnails
     - Permissions :
         - public
-        - protected album (need only a password)
         - protected gallery (need an account to see all albums)
         - direct link to a protected album
     - Upload via FTP, SSH
