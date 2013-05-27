@@ -31,6 +31,11 @@ def login_required(f):
     return decorated_function
 
 
+@frontend.errorhandler(404)
+def page_not_found(e):
+    return render_theme('404.html'), 404
+
+
 @frontend.route('/', defaults={'album_path':''})
 @frontend.route('/albums/<path:album_path>')
 @login_required

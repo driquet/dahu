@@ -46,6 +46,7 @@
 
         <div class="container">
 
+            {% if linked_path %}
             <ul class="breadcrumb">
                 {% for album, link in linked_path %}
                     {% if loop.last %}
@@ -55,6 +56,7 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+            {% endif %}
 
             {% block content %}
             {% endblock %}
