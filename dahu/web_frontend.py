@@ -1,3 +1,15 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+'''
+Dahu: Picture gallery
+Licence: BSD (see LICENCE file)
+
+Author: Damien Riquet <d.riquet@gmail.com>
+Description:
+    Run the web frontend
+'''
+
 from flask import Flask
 from simplekv.memory import DictStore
 from flaskext.kvsession import KVSessionExtension

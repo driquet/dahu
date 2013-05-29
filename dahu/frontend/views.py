@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+
+'''
+Dahu: Picture gallery
+Licence: BSD (see LICENCE file)
+
+Author: Damien Riquet <d.riquet@gmail.com>
+Description:
+    Views for the web frontend
+'''
+
 import os
 from functools import wraps
 from flask import Blueprint, current_app, abort, render_template, send_from_directory, request, session, url_for, redirect

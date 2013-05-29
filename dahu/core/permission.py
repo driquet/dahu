@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
+
 '''
-File: permission.py
+Dahu: Picture gallery
+Licence: BSD (see LICENCE file)
+
 Author: Damien Riquet <d.riquet@gmail.com>
-Description: Deals with users and permissions (storage of password, checking if the user can see albums and so on)
+Description:
+    Deals with users and permissions (storage of password, checking if the user can see albums and so on)
 
 The configuration files is a dict that contains :
     - users (name, password)

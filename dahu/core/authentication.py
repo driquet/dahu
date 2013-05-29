@@ -1,7 +1,13 @@
+#!/user/bin/env python
+# -*- coding: utf-8 -*-
+
 '''
-File: authentication.py
+Dahu: Picture gallery
+Licence: BSD (see LICENCE file)
+
 Author: Damien Riquet <d.riquet@gmail.com>
-Description: Provides functions to deal with authentication
+Description:
+    Provides functions to deal with authentication
 Source: https://exyr.org/2011/hashing-passwords/
 '''
 
@@ -58,7 +64,7 @@ def generate_album_key():
 
 if __name__ == '__main__':
     password = 'test1234'
-    hash_pwd = create_hash(passwordsrd)
+    hash_pwd = create_hash(password)
 
     print hash_pwd
     print check_hash('test1234_', hash_pwd)

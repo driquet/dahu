@@ -1,7 +1,12 @@
+# -*- coding: utf-8 -*-
+
 '''
-File: context.py
+Dahu: Picture gallery
+Licence: BSD (see LICENCE file)
+
 Author: Damien Riquet <d.riquet@gmail.com>
-Description: Create a context for web requests
+Description:
+    Create a context for web requests
 '''
 
 import os
