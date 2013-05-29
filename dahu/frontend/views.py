@@ -1,8 +1,8 @@
 import os
 from functools import wraps
-from flask import Blueprint, current_app, abort, render_template, send_from_directory, request, session
+from flask import Blueprint, current_app, abort, render_template, send_from_directory, request, session, url_for, redirect
 from dahu.core import album, image, permission
-from dahu.frontend import context
+from dahu.frontend import context, forms
 
 frontend = Blueprint('frontend', __name__, template_folder='templates')
 
@@ -22,10 +22,12 @@ def login_required(f):
 
         if request.args.get('album_key'):
             session['album_key'] = request.args.get('album_key')
+        album_key = session['album_key'] if session.has_key('album_key') else ''
 
-        if not permission.is_public_album(p_config, album_path) and \
-           not permission.check_album_key(p_config, album_path, session['album_key']):
-            abort(404)
+        if not 'username' in session:
+            if not permission.is_public_album(p_config, album_path) and \
+            not permission.check_album_key(p_config, album_path, album_key):
+                abort(404)
 
         return f(album_path, *args, **kwargs)
     return decorated_function
@@ -34,6 +36,28 @@ def login_required(f):
 @frontend.errorhandler(404)
 def page_not_found(e):
     return render_theme('404.html'), 404
+
+
+@frontend.route('/login/', defaults={'album_path':''}, methods=['GET', 'POST'])
+@frontend.route('/login/<path:album_path>', methods=['GET', 'POST'])
+def login(album_path):
+    if session.has_key('username'):
+        return redirect(url_for('.show_album', album_path=album_path))
+    form = forms.LoginForm(request.form)
+    if request.method == 'POST' and form.validate():
+        p_config = permission.get_config(current_app.config['CACHE_PATH'])
+        if permission.check_user_pwd(p_config, form.username.data, form.password.data):
+            session['username'] = request.form['username']
+            return redirect(url_for('.show_album', album_path=album_path))
+    return render_theme('login.html', album_path=album_path, form=form)
+
+
+@frontend.route('/logout/')
+def logout():
+    if session.has_key('username'):
+        session.pop('username', None)
+    return redirect(url_for('.show_album'))
+
 
 
 @frontend.route('/', defaults={'album_path':''})

@@ -43,7 +43,7 @@ def set_album_private(config, album):
 # ---- FUNCTIONS RELATED TO USERS ----
 def check_user_pwd(config, user, pwd):
     if user in config['users']:
-        return authentication.check_user_pwd(pwd, config['users'][user])
+        return authentication.check_hash(pwd, config['users'][user])
     return False
 
 def set_user_pwd(config, user, pwd):

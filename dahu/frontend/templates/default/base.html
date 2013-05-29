@@ -39,8 +39,20 @@
                         <ul class="nav">
                         </ul>
                     </div>
+                    <p class="navbar-text pull-right">
+                        {% if session.username %}
+                        <a href="{{ url_for('.logout') }}" >
+                            logout <i class="icon-off icon-white"></i>
+                        </a>
+                        {% else %}
+                        <a href="{{ url_for('.login') }}" >
+                            login <i class="icon-user icon-white"></i>
+                        </a>
+                        {% endif %}
+                    </p>
                 </div>
             </div>
+
         </div>
 
 

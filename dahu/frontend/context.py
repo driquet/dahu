@@ -5,7 +5,7 @@ Description: Create a context for web requests
 '''
 
 import os
-from flask import url_for, current_app
+from flask import url_for, current_app, session
 from dahu.core import album, permission
 
 
@@ -49,7 +49,7 @@ def generate_album_context(current_album):
     # Generate inner albums related data
     context['inner_albums'] = []
     for a in album.get_album_dirs(current_app.config['ALBUMS_PATH'], current_album):
-        if permission.is_public_album(p_config, os.path.join(current_album,a)):
+        if permission.is_public_album(p_config, os.path.join(current_album,a)) or 'username' in session:
             context['inner_albums'].append({
                 'name' : a,
                 'link' : url_for('.show_album', album_path=os.path.join(current_album, a)),
