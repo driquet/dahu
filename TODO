@@ -1,0 +1,15 @@
+- views
+    - cache (update/clear)
+    - admin frontend
+- template
+    - size of large picture (into the configuration file)
+- feature
+    - download a whole album
+    - cli
+    - fabric script to configure/deploy
+    - ordering photos
+    - album description
+    - display exif data
+- readme
+    - requirements
+    - whole readme to write
