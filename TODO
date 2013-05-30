@@ -1,5 +1,5 @@
 - views
-    - cache (update/clear)
+    - show photo (with details, possible sizes)
     - admin frontend
 - template
     - responsive theme (compatible with mobile devices)
