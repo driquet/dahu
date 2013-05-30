@@ -28,7 +28,7 @@
             <li>
             <a
                 class="thumbnail"
-                href="{{ url_for('.get_image', album_path=name, filename=picture, size='1024') }}">
+                href="{{ url_for('.get_image', album_path=name, filename=picture, size=config.PICTURE_SLIDESHOW_SIZE) }}">
                 <img src="{{ url_for('.get_thumb', album_path=name, filename=picture) }}" title="{{ picture }}" />
             </a>
             </li>

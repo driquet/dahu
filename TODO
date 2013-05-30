@@ -2,7 +2,8 @@
     - cache (update/clear)
     - admin frontend
 - template
-    - size of large picture (into the configuration file)
+    - responsive theme (compatible with mobile devices)
+    - footer (with data about the project)
 - feature
     - download a whole album
     - cli

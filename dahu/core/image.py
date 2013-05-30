@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+
+"""
+Dahu: Picture gallery
+Licence: BSD (see LICENCE file)
+
+Author: Damien Riquet <d.riquet@gmail.com>
+Description:
+    This file provides functions related to image
+"""
+
 from PIL import Image, ImageOps
 import os
 
