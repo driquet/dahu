@@ -9,7 +9,7 @@ Description:
     This file provides functions related to cache
 """
 
-import os
+import os, shutil
 from dahu.core import album, image
 
 def update_cache(root_path, cache_path, album_path, album_thumb_size, picture_sizes):
@@ -35,5 +35,10 @@ def update_cache(root_path, cache_path, album_path, album_thumb_size, picture_si
         update_cache(root_path, cache_path, os.path.join(album_path, inner_album), album_thumb_size, picture_sizes)
 
 
-
-
+def clear_cache(cache_path):
+    """ Clear the cache: remove all thumbnails """
+    for elt in os.listdir(cache_path):
+        elt_path = os.path.join(cache_path, elt)
+        if os.path.isdir(elt_path):
+            print elt_path
+            shutil.rmtree(elt_path)
