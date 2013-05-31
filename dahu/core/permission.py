@@ -54,6 +54,9 @@ def check_user_pwd(config, user, pwd):
 def set_user_pwd(config, user, pwd):
     config['users'][user] = authentication.create_hash(pwd)
 
+def del_user(config, user):
+    config['users'].pop(user, None)
+
 
 # ---- FUNCTIONS RELATED TO PRIVATE ALBUM (ACCESSED BY A KEY) ----
 def generate_album_key(config, album):

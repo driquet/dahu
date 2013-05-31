@@ -11,6 +11,7 @@
     - ordering photos
     - album description
     - display exif data
+    - send a mail when creating/editing a user account
 - readme
     - requirements
     - whole readme to write
