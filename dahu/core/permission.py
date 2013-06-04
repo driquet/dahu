@@ -67,6 +67,16 @@ def get_album_key(config, album):
         generate_album_key(config, album)
     return config['private_key'][album]
 
+def get_album_direct_link(config, album, host, port, prefix):
+    return 'http://%s%s/%salbums/%s/?album_key=%s' % ( \
+                host,
+                '' if not port else ':%d' % port,
+                prefix + '/' if prefix and not prefix.endswith('/') else prefix,
+                album,
+                get_album_key(config, album)
+            )
+
+
 def check_album_key(config, album, key):
     if album not in config['private_key']:
         return False

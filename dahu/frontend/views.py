@@ -70,7 +70,6 @@ def logout():
     return redirect(url_for('.show_album'))
 
 
-
 @frontend.route('/', defaults={'album_path':''})
 @frontend.route('/albums/<path:album_path>')
 @login_required
