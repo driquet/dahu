@@ -6,7 +6,6 @@
     - footer (with data about the project)
 - feature
     - download a whole album
-    - cli
     - fabric script to configure/deploy
     - ordering photos
     - album description
