@@ -1,3 +1,7 @@
+- one python executable (option for cli or web frontend)
+- cli
+    - help
+    - autocomplete
 - views
     - show photo (with details, possible sizes)
     - admin frontend
@@ -16,4 +20,3 @@
     - whole readme to write
 - extern files
     - mention them somewhere
-    - local modification (-> to be put in other files)
