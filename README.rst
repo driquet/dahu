@@ -58,7 +58,7 @@ To set up Dahu, you need to:
 1. Install requirements
 2. Customize the ``config.py`` file
 3. Create the cache directory (don't forget, it needs to be readable/writable)
-4. Deploies the application (see `Deployment`_ section)
+4. Deploy the application (see `Deployment`_ section)
 
 
 Configuration
@@ -103,6 +103,16 @@ Deployment
 
 Security
 --------
+
+Enhancements
+------------
+A lot of enhancements can be done. Feel free to contribute by:
+- reporting issues
+- proposing new features
+- enhancing Dahu
+
+Possible enhancement are:
+- admin frontend
 
 Troubles
 --------
