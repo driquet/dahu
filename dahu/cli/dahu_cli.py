@@ -10,7 +10,7 @@ Description:
     This file provides a Command Line Interface
 """
 
-import os
+import os, argparse, sys
 from cmd2 import Cmd
 from getpass import getpass
 from dahu.core import album, cache, permission
@@ -42,6 +42,7 @@ class DahuCLI(Cmd):
     def __init__(self, config):
         Cmd.__init__(self)
         self.config = config
+        self.prompt = 'dahu>'
 
     def do_EOF(self, line):
         return True
@@ -187,9 +188,6 @@ class DahuCLI(Cmd):
     def do_directlink(self, arg):
         if arg and album.is_valid_path(self.config['ALBUMS_PATH'], arg):
             perm_config = permission.get_config(self.config['CACHE_PATH'])
-            key = permission.get_album_key(perm_config, arg)
-            permission.save_config(perm_config, self.config['CACHE_PATH'])
-
             print permission.get_album_direct_link(perm_config, arg, self.config['FRONTEND_HOST'], \
                                                    self.config['FRONTEND_PORT'], self.config['FRONTEND_PREFIX'])
 
@@ -197,8 +195,14 @@ class DahuCLI(Cmd):
             self.perror("Invalid album name")
 
 
+def main():
+    parser = argparse.ArgumentParser(description='Dahu CLI')
+    parser.add_argument('config', help='Dahu configuration file (default: config.py)')
+    args = parser.parse_args()
+    sys.argv = sys.argv[2:]
 
+    config = os.path.join(os.getcwd(), args.config)
+    DahuCLI(load_config(config)).cmdloop()
 
 if __name__ == '__main__':
-    config = '/Users/driquet/git/dahu/dahu/config.py'
-    DahuCLI(load_config(config)).cmdloop()
+    main()
