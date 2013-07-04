@@ -47,7 +47,7 @@ If you want to install Dahu system-wide, skip the following steps.
 
 ::
 
-    $ virtualenv --prompt==dahu venv
+    $ virtualenv --prompt=(dahu) venv
     $ source venv/bin/activate
 
 To install Dahu and its requirements, run the following command: ::

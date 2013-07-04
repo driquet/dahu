@@ -5,7 +5,7 @@ requires = [
     'Flask',
     'Flask-KVSession',
     'Flask-WTF',
-    'PIL',
+    'pillow', # As PIL is not incompatible with setuptools, look for an alternative
     'simple-pbkdf2',
     'cmd2',
 ]
