@@ -37,14 +37,25 @@ Features
 Installation
 ------------
 
-Requirements
-############
-Dahu requires some Python modules to be installed.
-Using pip, you can install them as follow:
+First, grab sources::
+
+    $ git clone https://github.com/driquet/dahu.git
+    $ cd dahu
+
+I strongly recommend using a virtual environnement to keep a clean system.
+If you want to install Dahu system-wide, skip the following steps.
 
 ::
 
-    $ pip install -r requirements.txt
+    $ virtualenv --prompt==dahu venv
+    $ source venv/bin/activate
+
+To install Dahu and its requirements, run the following command: ::
+
+    $ python setup.py install
+
+Two binaries are now available: ``dahu-web`` and ``dahu-cli``.
+
 
 Setting up Dahu
 ###############
@@ -78,11 +89,12 @@ Permissions are stored in the file ``permissions.json``, located in the cache di
 - Album keys for direct links
 
 To manage these data, you can use Dahu CLI.
+First, you need to make sure that your virtualenv is activated if you are using one.
 Launch the CLI with:
 
 ::
 
-    $ python dahu -c
+    $ dahu-cli
 
 
 =====================================   ===========
