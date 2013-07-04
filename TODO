@@ -7,7 +7,6 @@
     - admin frontend
 - template
     - responsive theme (compatible with mobile devices)
-    - footer (with data about the project)
 - feature
     - download a whole album
     - fabric script to configure/deploy
@@ -16,7 +15,6 @@
     - display exif data
     - send a mail when creating/editing a user account
 - readme
-    - requirements
-    - whole readme to write
+    - readme to write (deployment, security and so on)
 - extern files
     - mention them somewhere
